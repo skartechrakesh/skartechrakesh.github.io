@@ -5,6 +5,34 @@ const elementToggleFunc = function (elem) {
   if (elem) elem.classList.toggle("active");
 };
 
+// theme toggle functionality (dark default + glossy light theme)
+const themeToggleBtn = document.querySelector("[data-theme-toggle]");
+const themeIcon = document.querySelector("[data-theme-icon]");
+const themeLabel = document.querySelector("[data-theme-label]");
+const THEME_STORAGE_KEY = "portfolio-theme";
+
+const applyTheme = function (isLight) {
+  document.body.classList.toggle("light-theme", isLight);
+  if (themeIcon) {
+    themeIcon.setAttribute("name", isLight ? "moon-outline" : "sunny-outline");
+  }
+  if (themeLabel) {
+    themeLabel.textContent = isLight ? "Dark Mode" : "Light Mode";
+  }
+};
+
+// Restore saved theme preference on load
+const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+applyTheme(savedTheme === "light");
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener("click", function () {
+    const nextIsLight = !document.body.classList.contains("light-theme");
+    applyTheme(nextIsLight);
+    localStorage.setItem(THEME_STORAGE_KEY, nextIsLight ? "light" : "dark");
+  });
+}
+
 // sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
