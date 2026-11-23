@@ -311,12 +311,12 @@ main {
 
 .sidebar {
   margin-bottom: 16px;
-  max-height: 116px;
+  max-height: 142px;
   overflow: hidden;
   transition: var(--transition-2);
 }
 
-.sidebar.active { max-height: 495px; }
+.sidebar.active { max-height: 530px; }
 
 .sidebar-info {
   position: relative;
@@ -345,6 +345,7 @@ main {
   font-size: var(--fs-3);
   font-weight: var(--fw-600);
   letter-spacing: -0.02em;
+  line-height: 1.25;
   margin-bottom: 8px;
 }
 
@@ -357,10 +358,10 @@ main {
   font-weight: var(--fw-400);
   max-width: 100%;
   width: fit-content;
+  padding: 5px 12px;
+  border-radius: 12px;
+  line-height: 1.45;
   text-align: center;
-  padding: 4px 12px;
-  border-radius: 999px;
-  line-height: 1.4;
 }
 
 .info_more-btn {
